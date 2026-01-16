@@ -57,3 +57,21 @@ This repo now contains a minimal Godot 4 project that boots into a simple scene.
 3. Launch Godot and click **Import**.
 4. Select this repo folder (`GameCrush`) and open the project.
 5. Press **Play** to run the demo.
+
+## Web demo (TypeScript)
+This repo also includes a TypeScript web demo powered by **Vite + React** under `/web`.
+
+### Run locally
+1. `cd web`
+2. `npm install`
+3. `npm run dev`
+4. Open the URL shown in your terminal (usually http://localhost:5173).
+
+### Troubleshooting npm install
+If `npm install` fails with a 403 or registry error, it usually means your environment
+is blocking access to the public npm registry. Try the following on your machine:
+1. Ensure npm is pointing to the public registry:
+   - `npm config set registry https://registry.npmjs.org/`
+2. Re-run `npm install`.
+3. If you're behind a proxy or corporate network, configure npm proxy settings or use a
+   registry mirror you have access to.
