@@ -34,6 +34,12 @@ This repo now contains a minimal Godot 4 project that boots into a simple scene.
 - `project.godot` with the main scene at `res://scenes/Main.tscn`
 - `scenes/Main.tscn` + `scripts/Main.gd` for a placeholder UI label
 
+## Demo behavior (Doudizhu-inspired)
+- Draws a **5-card hand** from a Doudizhu-style deck (ranks 3–A, 2, Black Joker, Red Joker).
+- Detects basic hand types: **single, pair, triple, straight, bomb, rocket**.
+- Applies a **roguelike modifier** each run (simple score add/mult).
+- Outputs the hand, type, and score in the UI.
+
 ## Immediate next steps
 1. Define the **core gameplay loop** (draw → choose → resolve → reward).
 2. Sketch the **first playable**: 10–15 cards, 1–2 scoring rules, and a single run.
@@ -42,4 +48,5 @@ This repo now contains a minimal Godot 4 project that boots into a simple scene.
 ## How to run
 1. Install **Godot 4** (standard edition).
 2. Open the project by selecting this folder.
-3. Press **Play** to launch the placeholder scene.
+3. Press **Play** to launch the demo scene.
+4. Click **Draw Hand** and **New Run Modifier** to see scoring changes.

@@ -2,17 +2,60 @@
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_1v8nj"]
 
-[node name="Main" type="Node2D"]
-script = ExtResource("1_1v8nj")
-
-[node name="Title" type="Label" parent="."]
-anchors_preset = 15
+[node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = -32.0
-offset_bottom = -32.0
-text = "GameCrush: Balatro-like prototype"
-vertical_alignment = 1
-horizontal_alignment = 1
+script = ExtResource("1_1v8nj")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.09, 0.09, 0.1, 1)
+
+[node name="Content" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="./Content"]
+text = "GameCrush Demo: Doudizhu-inspired hand"
+
+[node name="Subtitle" type="Label" parent="./Content"]
+text = "Draw a 5-card hand, evaluate it, and apply a roguelike modifier."
+
+[node name="ModifierLabel" type="Label" parent="./Content"]
+text = "Modifier:"
+
+[node name="Buttons" type="HBoxContainer" parent="./Content"]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="DrawButton" type="Button" parent="./Content/Buttons"]
+text = "Draw Hand"
+size_flags_horizontal = 3
+
+[node name="NextRunButton" type="Button" parent="./Content/Buttons"]
+text = "New Run Modifier"
+size_flags_horizontal = 3
+
+[node name="HandLabel" type="Label" parent="./Content"]
+text = "Hand:"
+
+[node name="TypeLabel" type="Label" parent="./Content"]
+text = "Type:"
+
+[node name="ScoreLabel" type="Label" parent="./Content"]
+text = "Score:"
+
+[node name="LogLabel" type="Label" parent="./Content"]
+text = "Ready."
+
+[connection signal="pressed" from="Content/Buttons/DrawButton" to="." method="_on_draw_button_pressed"]
+[connection signal="pressed" from="Content/Buttons/NextRunButton" to="." method="_on_next_run_button_pressed"]
