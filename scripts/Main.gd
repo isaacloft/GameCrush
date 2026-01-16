@@ -49,11 +49,11 @@ const MODIFIERS: Array = [
 	},
 ]
 
-@onready var hand_label: Label = %HandLabel
-@onready var type_label: Label = %TypeLabel
-@onready var score_label: Label = %ScoreLabel
-@onready var modifier_label: Label = %ModifierLabel
-@onready var log_label: Label = %LogLabel
+@onready var hand_label: Label = $Content/HandLabel
+@onready var type_label: Label = $Content/TypeLabel
+@onready var score_label: Label = $Content/ScoreLabel
+@onready var modifier_label: Label = $Content/ModifierLabel
+@onready var log_label: Label = $Content/LogLabel
 
 var current_modifier: Dictionary = {}
 
@@ -76,8 +76,8 @@ func _on_next_run_button_pressed() -> void:
 func _roll_modifier() -> void:
 	current_modifier = MODIFIERS.pick_random()
 	modifier_label.text = "%s (%s)" % [
-		current_modifier.name,
-		current_modifier.description,
+		current_modifier["name"],
+		current_modifier["description"],
 	]
 
 func _draw_hand(count: int) -> Array:
@@ -86,7 +86,7 @@ func _draw_hand(count: int) -> Array:
 		var copies := 4
 		if rank == "BJ" or rank == "RJ":
 			copies = 1
-		for i in copies:
+		for i in range(copies):
 			deck.append(rank)
 	deck.shuffle()
 	return deck.slice(0, count)
@@ -150,7 +150,7 @@ func _score_hand(hand: Array, hand_type: String) -> int:
 	var sum := 0
 	for card in hand:
 		sum += RANK_VALUES[card]
-	var modified := int((base + sum + current_modifier.add) * current_modifier.mult)
+	var modified := int((base + sum + current_modifier["add"]) * current_modifier["mult"])
 	return max(modified, 0)
 
 func _update_ui(hand: Array, hand_type: String, score: int) -> void:
