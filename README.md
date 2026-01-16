@@ -50,3 +50,10 @@ This repo now contains a minimal Godot 4 project that boots into a simple scene.
 2. Open the project by selecting this folder.
 3. Press **Play** to launch the demo scene.
 4. Click **Draw Hand** and **New Run Modifier** to see scoring changes.
+
+## Run on macOS
+1. Download **Godot 4 (Standard)** from https://godotengine.org/download.
+2. Unzip and move `Godot.app` to **/Applications** (optional but recommended).
+3. Launch Godot and click **Import**.
+4. Select this repo folder (`GameCrush`) and open the project.
+5. Press **Play** to run the demo.
